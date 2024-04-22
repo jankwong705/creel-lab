@@ -10,7 +10,7 @@ library(readxl)
 library(dplyr)
 library(writexl)
 
-USMX <- read_excel("/Users/sarahpaull/Desktop/Creel-Lab/USMXoutput.xlsx")
+USMX <- read_excel("USMXoutput.xlsx")
 
 #change column names from Actual to Target and Predicted to Response
 USMX <- rename(USMX, target = Actual, response = Predicted)
