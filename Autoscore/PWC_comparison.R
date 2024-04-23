@@ -1,6 +1,6 @@
 #Read in files
-USMX_autoscore <- read_excel("/Users/sarahpaull/Desktop/Creel-Lab/USMX_autoscore.xlsx")
-USMX_autoscore_5 <- read_excel("/Users/sarahpaull/Desktop/Creel-Lab/USMX_autoscore_5.xlsx")
+USMX_autoscore <- read_excel("USMX_autoscore.xlsx")
+USMX_autoscore_5 <- read_excel("USMX_autoscore_5.xlsx")
 
 #Change column names
 colnames(USMX_autoscore_5)[which(colnames(USMX_autoscore_5) == "pwc")] <- "pwc_5"
@@ -16,3 +16,5 @@ USMX_both <- USMX_both[, new_order]
 #Dummy variable to see if pwc is the same on the two different autoscore functions (0 is same 1 is different)
 USMX_both$pwc_comparison <- ifelse(USMX_both$pwc == USMX_both$pwc_5, 0, 1)
 
+#Save the file
+write_xlsx(USMX_both, "USMX_pwc_comparison.xlsx")
